@@ -12,24 +12,28 @@ class CardQuiz{
     Card? card = cardList.randomCard();
     if (card != null){
       card.display();
-      getInput(message: 'Press Enter to reveal the answer');
+      getInput(message: '[ Press Enter to reveal the answer ]');
       card.display(showAnswer: true);
     }
   }
 
   void selectQuestion(){
     final cardList = container.read(cardListServiceProvider);
-    String? idInput = getInput(message: 'Select question Id to answer');
-    int? id = int.tryParse(idInput!);
-    if (id != null){
-      Card? card = cardList.findCard(idx: id);
-      if (card != null){
-        card.display();
-        getInput(message: '[ Press Enter to reveal the answer ]');
-        card.display(showAnswer: true);
-      } else {
-        print('There is no card with that Id');
+    String? idInput = getInput(message: 'Select question Id to answer:');
+    if (idInput != null){
+      int? id = int.tryParse(idInput);
+      if (id != null){
+        print(id);
+        Card? card = cardList.findCard(idx: id - 1);
+        if (card != null){
+          card.display();
+          getInput(message: '[ Press Enter to reveal the answer ]');
+          card.display(showAnswer: true);
+        } else {
+          print('There is no card with that Id');
+        }
       }
     }
+    
   }
 }

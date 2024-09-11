@@ -11,9 +11,8 @@ class CardEditor{
     final cardList = container.read(cardListServiceProvider);
     String? newQuestion = getInput(message: 'Type in the question: ');
     String? newAnswer = getInput(message: 'Type in the answer: ');
-    String? newCategory = getInput(message: 'Enter Categories (separated with space): ');
-    if (newCategory != null && newQuestion != null && newAnswer != null){
-      cardList.addCard(question: newQuestion, answer: newAnswer, categories: newCategory.split(' '));
+    if (newQuestion != null && newAnswer != null){
+      cardList.addCard(question: newQuestion, answer: newAnswer);
     }
   }
 
@@ -21,7 +20,7 @@ class CardEditor{
     final cardList = container.read(cardListServiceProvider);
     for (var i = 0; i < cardList.cards.length; i++) {
       Card card = cardList.cards[i];
-      card.display(showAnswer: true, showCategory: true, idx: i+1);
+      card.display(showAnswer: true, idx: i+1);
     }
   }
 

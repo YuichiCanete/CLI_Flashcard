@@ -16,13 +16,12 @@ class CardList {
     return randomElement(list: cards);
   }
 
-  void addCard({String? question, String? answer, List<String>? categories, bool showMessage = true}) {
+  void addCard({String? question, String? answer, bool showMessage = true}) {
     String? message;
-    if (question != null && answer != null && categories != null) {
+    if (question != null && answer != null) {
       cards.add(Card(
         question: question,
-        answer: answer,
-        categories: categories
+        answer: answer
         )
       );
       message = 'Card added successfully!';

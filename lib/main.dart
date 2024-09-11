@@ -24,11 +24,11 @@ Action viewCardAction = Action(key: 'V', message: 'View all cards', callback: ca
 void main(){
 
   // Adding Dart Fun Facts
-  cardList.addCard(question: 'What is the official Dart package manager?', answer: 'pub', showMessage: false, categories: ['dart', 'programming']);
-  cardList.addCard(question: 'Which keyword is used to create asynchronous functions in Dart?', answer: 'async', showMessage: false,categories: ['dart', 'programming']);
-  cardList.addCard(question: 'What is the file extension for Dart files?', answer: '.dart', showMessage: false, categories: ['dart', 'programming']);
-  cardList.addCard(question: 'Is Dart a statically or dynamically typed language?', answer: 'Statically typed', showMessage: false, categories: ['dart', 'programming']);
-  cardList.addCard(question: 'Which company developed Dart?', answer: 'Google', showMessage: false, categories: ['dart', 'programming']);
+  cardList.addCard(question: 'What is the official Dart package manager?', answer: 'pub', showMessage: false);
+  cardList.addCard(question: 'Which keyword is used to create asynchronous functions in Dart?', answer: 'async', showMessage: false);
+  cardList.addCard(question: 'What is the file extension for Dart files?', answer: '.dart', showMessage: false);
+  cardList.addCard(question: 'Is Dart a statically or dynamically typed language?', answer: 'Statically typed', showMessage: false);
+  cardList.addCard(question: 'Which company developed Dart?', answer: 'Google', showMessage: false);
 
   editorActions
     ..addAction(key: 'A', message: 'Add a new card', callback: cardEditorService.addCard)
