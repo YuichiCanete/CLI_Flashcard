@@ -6,7 +6,7 @@ This is a Command-Line Interface (CLI) Flashcard application built using Dart.
 
 use powershell terminal
 
-## clone repo
+## Clone repo
 
 ``` git clone https://github.com/YuichiCanete/CLI_Flashcard.git ```
 
