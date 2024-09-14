@@ -33,7 +33,11 @@ class CardQuiz{
         } else {
           print('There is no card with that Id');
         }
+      } else {
+        print('invalid input');
       }
+    } else {
+      print('invalid input');
     }
     
   }

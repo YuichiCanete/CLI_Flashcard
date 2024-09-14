@@ -30,11 +30,15 @@ class CardEditor{
   void deleteCard(){
     final cardList = container.read(cardListServiceProvider);
     String? inputId = getInput(message: 'Type Card Id to delete: ');
-    int? idx = int.tryParse(inputId!);
-    if (idx != null){
-      cardList.deleteCard(idx: idx - 1);
+    if (inputId != null){
+      int? idx = int.tryParse(inputId);
+      if (idx != null){
+        cardList.deleteCard(idx: idx - 1);
+      } else {
+        print('Failed to add new card');
+      }
     } else {
-      print('Failed to add new card');
+      print('Invalid Id');
     }
   }
 
