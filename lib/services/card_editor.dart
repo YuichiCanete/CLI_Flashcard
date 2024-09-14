@@ -3,6 +3,7 @@ import 'package:flashcard_app/models/card.dart';
 import 'package:riverpod/riverpod.dart';
 import '../tools.dart';
 
+// Allow add, view, editing and deletion of cards with user input
 class CardEditor{
   final Ref container;
   CardEditor(this.container);
@@ -13,6 +14,8 @@ class CardEditor{
     String? newAnswer = getInput(message: 'Type in the answer: ');
     if (newQuestion != null && newAnswer != null){
       cardList.addCard(question: newQuestion, answer: newAnswer);
+    } else {
+      print('Failed to add new card');
     }
   }
 
@@ -30,6 +33,8 @@ class CardEditor{
     int? idx = int.tryParse(inputId!);
     if (idx != null){
       cardList.deleteCard(idx: idx - 1);
+    } else {
+      print('Failed to add new card');
     }
   }
 
@@ -42,7 +47,9 @@ class CardEditor{
       String? newAnswer = getInput(message: 'Type in the answer: ');
       if (idx != null && newQuestion != null && newAnswer != null){
         cardList.editCard(idx: idx - 1, question: newQuestion, answer: newAnswer);
-      } 
+      } else {
+        print('Failed to edit card');
+      }
     } else {
       print('Id cannot be empty.');
     }

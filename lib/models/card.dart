@@ -9,6 +9,7 @@ class Card {
     required this.answer,
   });
 
+  // Draws a square that acts as a flash card
   void display({bool showAnswer = false, int? idx}) {
     int maxLength = 'Question: $question'.length;
     if (idx != null) {

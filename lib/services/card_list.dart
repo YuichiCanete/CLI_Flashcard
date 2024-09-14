@@ -1,7 +1,8 @@
 import '../models/card.dart';
 import '../tools.dart';
 
-
+// Allows adding, editing ,viewing and deletion of cards directly
+// with no user input for easier testing
 class CardList {
   List<Card> cards = [];
 

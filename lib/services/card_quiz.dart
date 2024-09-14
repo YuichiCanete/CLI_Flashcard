@@ -3,6 +3,7 @@ import 'package:flashcard_app/tools.dart';
 import 'package:riverpod/riverpod.dart';
 import '../global_providers.dart';
 
+// Handles the selection and randomization of asking a flash card question
 class CardQuiz{
   final Ref container;
   CardQuiz(this.container);

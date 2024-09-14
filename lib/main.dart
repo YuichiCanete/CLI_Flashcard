@@ -5,7 +5,6 @@ import 'package:flashcard_app/tools.dart';
 import 'package:riverpod/riverpod.dart';
 
 final container = ProviderContainer();
-
 final cardList = container.read(cardListServiceProvider);
 final cardEditorService = container.read(cardEditorServiceProvider);  
 final cardQuizService = container.read(cardQuizServiceProvider);
@@ -13,23 +12,28 @@ final cardQuizService = container.read(cardQuizServiceProvider);
 bool isRunning = true;
 ActionManager? currentScene;
 
+// Declare "scenes" / ActionManagers
 ActionManager editorActions = ActionManager();
 ActionManager quizActions = ActionManager();
 ActionManager menuActions = ActionManager();
 
+// Reusable Actions
 Action exitAction = Action(key: 'X', message: 'Exit app', callback: exitApp);
 Action backAction = Action(key: 'B', message: 'Back to menu', callback: switchScene(scene: menuActions));
 Action viewCardAction = Action(key: 'V', message: 'View all cards', callback: cardEditorService.viewCards);
 
 void main(){
 
-  // Adding Dart Fun Facts
-  cardList.addCard(question: 'What is the official Dart package manager?', answer: 'pub', showMessage: false);
-  cardList.addCard(question: 'Which keyword is used to create asynchronous functions in Dart?', answer: 'async', showMessage: false);
-  cardList.addCard(question: 'What is the file extension for Dart files?', answer: '.dart', showMessage: false);
-  cardList.addCard(question: 'Is Dart a statically or dynamically typed language?', answer: 'Statically typed', showMessage: false);
-  cardList.addCard(question: 'Which company developed Dart?', answer: 'Google', showMessage: false);
+  // Adding Dummy Flash Cards
+  cardList
+    ..addCard(question: 'What is the official Dart package manager?', answer: 'pub', showMessage: false)
+    ..addCard(question: 'Which keyword is used to create asynchronous functions in Dart?', answer: 'async', showMessage: false)
+    ..addCard(question: 'What is the file extension for Dart files?', answer: '.dart', showMessage: false)
+    ..addCard(question: 'Is Dart a statically or dynamically typed language?', answer: 'Statically typed', showMessage: false)
+    ..addCard(question: 'Which company developed Dart?', answer: 'Google', showMessage: false)
+  ;
 
+  // Setup Actions
   editorActions
     ..addAction(key: 'A', message: 'Add a new card', callback: cardEditorService.addCard)
     ..useAction(action: viewCardAction)
@@ -54,7 +58,9 @@ void main(){
     ..useAction(action: exitAction)
   ;
 
+  // Set initial "scene"
   currentScene = menuActions;
+
   //Main Loop
   print('Flash Card App!');
   while (isRunning){
@@ -67,13 +73,16 @@ void main(){
 
 }
 
+// Returns a function of switching scene because i dont like the look of arrow function
 Function switchScene({required ActionManager scene}){
   return (){
     currentScene = scene;
   };
 }
 
+// Prints the about section of the app that is definately not written by chatGPT
 void printAbout(){
+  printLine(len: 100);
   print('''
 CLI Flash Card App
 By: Yuichi Canete
@@ -90,10 +99,11 @@ The app is designed to be lightweight, fast, and customizable for any topic, fro
 
 Happy learning!
 ''');
+  printLine(len: 100);
 }
 
+// exits the app
 void exitApp(){
   isRunning = false;
   print('Exiting the app.');
 }
-
