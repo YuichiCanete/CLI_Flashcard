@@ -6,6 +6,9 @@ import './services/card_list.dart';
 // Easy way to do dependency injection
 // And manage global instances of cardList, cardEditor and cardQuiz
 
+// service - provide logic and state management
+// controller - handles user input
+
 final cardListServiceProvider = Provider((ref) {
   // maintains list of flashcards
   return CardList();

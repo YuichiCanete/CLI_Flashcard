@@ -4,6 +4,7 @@ import 'package:riverpod/riverpod.dart';
 import '../tools.dart';
 
 // Allow add, view, editing and deletion of cards with user input
+// service, controller
 class CardEditor{
   final Ref container;
   CardEditor(this.container);
